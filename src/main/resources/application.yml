@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: #your data source url
+    username:  #your data source username
+    password:  #your data source password
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: #your clientId
+            clientSecret: #your clientSecret
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
+application.jwt:
+    secretKey: sesecuresecuresecuresecsecureuresecuresecuresecuresecuresecuresecurecure"
+    tokenPrefix: Bearer
+    tokenExpirationAfterDays: 2
+    authorizedRedirectUri: http://localhost:3000/oauth2/redirect
